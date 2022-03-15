@@ -20,6 +20,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var score = 0
     var lives = 3
     var removedBricks = 0
+    //let randomNumber = Int.random(in: 1..<6)
     
     override func didMove(to view: SKView) {
         // this stuff happens once (when the app opens)
@@ -68,11 +69,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 contact.bodyB.node == brick {
                 score += 1
                 updateLabels()
-                if brick.color == .blue {
-                    brick.color = .orange   // blue bricks turn orange
+                if brick.color == .cyan {
+                    brick.color = .magenta   // blue bricks turn orange
                 }
-                else if brick.color == .orange {
-                    brick.color = .green    // orange bricks turn green
+                else if brick.color == .magenta {
+                    brick.color = .lightGray    // orange bricks turn green
                 }
                 else {  // must be a green brick, which get removed
                     brick.removeFromParent()
@@ -119,21 +120,66 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         livesLabel.text = "Lives: \(lives)"
     }
     
-    
     func createBackground() {
-        let stars = SKTexture(imageNamed: "Stars")
-        for i in 0...1 {
-            let starsBackground = SKSpriteNode(texture: stars)
-            starsBackground.zPosition = -1
-            starsBackground.position = CGPoint(x: 0, y: starsBackground.size.height * CGFloat(i))
-            addChild(starsBackground)
-            let moveDown = SKAction.moveBy(x: 0, y: -starsBackground.size.height, duration: 20)
-            let moveReset = SKAction.moveBy(x: 0, y: starsBackground.size.height, duration: 0)
-            let moveLoop = SKAction.sequence([moveDown, moveReset])
-            let moveForever = SKAction.repeatForever(moveLoop)
-            starsBackground.run(moveForever)
-        }
-    }
+        //for e in 1...5 {
+           // if e == 1 {
+               // let stars = SKTexture(imageNamed: "Stars")
+               // for i in 0...1 {
+                   // let starsBackground = SKSpriteNode(texture: stars)
+                   // starsBackground.zPosition = -1
+                   // starsBackground.position = CGPoint(x: 0, y: starsBackground.size.height * CGFloat(i))
+                   // addChild(starsBackground)
+                    //let moveDown = SKAction.moveBy(x: 0, y: -starsBackground.size.height, duration: 20)
+                   // let moveReset = SKAction.moveBy(x: 0, y: starsBackground.size.height, duration: 0)
+                   // let moveLoop = SKAction.sequence([moveDown, moveReset])
+                   // let moveForever = SKAction.repeatForever(moveLoop)
+                 //   starsBackground.run(moveForever)
+             //   }
+           // }
+           // else if e == 2 {
+                let galaxy = SKTexture(imageNamed: "Galaxy Background")
+                for i in 0...1 {
+                    let galaxyBackground = SKSpriteNode(texture: galaxy)
+                    galaxyBackground.zPosition = -1
+                    galaxyBackground.position = CGPoint(x: 0, y: galaxyBackground.size.height * CGFloat(i))
+                    addChild(galaxyBackground)
+                    let moveDown = SKAction.moveBy(x: 0, y: -galaxyBackground.size.height, duration: 20)
+                    let moveReset = SKAction.moveBy(x: 0, y: galaxyBackground.size.height, duration: 0)
+                    let moveLoop = SKAction.sequence([moveDown, moveReset])
+                    let moveForever = SKAction.repeatForever(moveLoop)
+                    galaxyBackground.run(moveForever)
+                }
+            }
+           // else if e == 4 {
+                //let pplanets = SKTexture(imageNamed: "PP Background")
+               // for i in 0...1 {
+                  //  let pplanetBackground = SKSpriteNode(texture: pplanets)
+                   // pplanetBackground.zPosition = -1
+                    //pplanetBackground.position = CGPoint(x: 0, y: pplanetBackground.size.height * CGFloat(i))
+                   // addChild(pplanetBackground)
+                  //  let moveDown = SKAction.moveBy(x: 0, y: -pplanetBackground.size.height, duration: 20)
+                 //   let moveReset = SKAction.moveBy(x: 0, y: pplanetBackground.size.height, duration: 0)
+                  //  let moveLoop = SKAction.sequence([moveDown, moveReset])
+                   // let moveForever = SKAction.repeatForever(moveLoop)
+                   // pplanetBackground.run(moveForever)
+              //  }
+           // }
+            //else {
+               // let stars = SKTexture(imageNamed: "Stars")
+               // for i in 0...1 {
+                   // let starsBackground = SKSpriteNode(texture: stars)
+                 //   starsBackground.zPosition = -1
+                  //  starsBackground.position = CGPoint(x: 0, y: starsBackground.size.height * CGFloat(i))
+                   // addChild(starsBackground)
+                  //  let moveDown = SKAction.moveBy(x: 0, y: -starsBackground.size.height, duration: 20)
+                   // let moveReset = SKAction.moveBy(x: 0, y: starsBackground.size.height, duration: 0)
+                   // let moveLoop = SKAction.sequence([moveDown, moveReset])
+                  //  let moveForever = SKAction.repeatForever(moveLoop)
+                 //   starsBackground.run(moveForever)
+               // }
+           // }
+      //  }
+  //  }
     
     func makeBall() {
         ball.removeFromParent()     // remove the ball (if it exists)
@@ -195,7 +241,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // now, figure the number and spacing of each row of bricks
         let count = Int(frame.width) / 55   // bricks per row
         let xOffset = (Int(frame.width) - (count * 55)) / 2 + Int(frame.minX) + 25
-        let colors: [UIColor] = [.blue, .orange, .green]
+        let colors: [UIColor] = [.cyan, .magenta, .lightGray]
         for r in 0..<3 {
             let y = Int(frame.maxY) - 15 - (r * 25)
             for i in 0..<count {
