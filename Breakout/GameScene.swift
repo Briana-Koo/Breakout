@@ -121,22 +121,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func createBackground() {
-        //for e in 1...5 {
-           // if e == 1 {
-               // let stars = SKTexture(imageNamed: "Stars")
-               // for i in 0...1 {
-                   // let starsBackground = SKSpriteNode(texture: stars)
-                   // starsBackground.zPosition = -1
-                   // starsBackground.position = CGPoint(x: 0, y: starsBackground.size.height * CGFloat(i))
-                   // addChild(starsBackground)
-                    //let moveDown = SKAction.moveBy(x: 0, y: -starsBackground.size.height, duration: 20)
-                   // let moveReset = SKAction.moveBy(x: 0, y: starsBackground.size.height, duration: 0)
-                   // let moveLoop = SKAction.sequence([moveDown, moveReset])
-                   // let moveForever = SKAction.repeatForever(moveLoop)
-                 //   starsBackground.run(moveForever)
-             //   }
-           // }
-           // else if e == 2 {
+        for e in 1...5 {
+            if e == 1 {
+                let stars = SKTexture(imageNamed: "Stars")
+                for i in 0...1 {
+                    let starsBackground = SKSpriteNode(texture: stars)
+                    starsBackground.zPosition = -1
+                    starsBackground.position = CGPoint(x: 0, y: starsBackground.size.height * CGFloat(i))
+                    addChild(starsBackground)
+                    let moveDown = SKAction.moveBy(x: 0, y: -starsBackground.size.height, duration: 20)
+                    let moveReset = SKAction.moveBy(x: 0, y: starsBackground.size.height, duration: 0)
+                    let moveLoop = SKAction.sequence([moveDown, moveReset])
+                    let moveForever = SKAction.repeatForever(moveLoop)
+                    starsBackground.run(moveForever)
+                }
+            }
+            else if e == 2 {
                 let galaxy = SKTexture(imageNamed: "Galaxy Background")
                 for i in 0...1 {
                     let galaxyBackground = SKSpriteNode(texture: galaxy)
@@ -150,36 +150,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     galaxyBackground.run(moveForever)
                 }
             }
-           // else if e == 4 {
-                //let pplanets = SKTexture(imageNamed: "PP Background")
-               // for i in 0...1 {
-                  //  let pplanetBackground = SKSpriteNode(texture: pplanets)
-                   // pplanetBackground.zPosition = -1
-                    //pplanetBackground.position = CGPoint(x: 0, y: pplanetBackground.size.height * CGFloat(i))
-                   // addChild(pplanetBackground)
-                  //  let moveDown = SKAction.moveBy(x: 0, y: -pplanetBackground.size.height, duration: 20)
-                 //   let moveReset = SKAction.moveBy(x: 0, y: pplanetBackground.size.height, duration: 0)
-                  //  let moveLoop = SKAction.sequence([moveDown, moveReset])
-                   // let moveForever = SKAction.repeatForever(moveLoop)
-                   // pplanetBackground.run(moveForever)
-              //  }
-           // }
-            //else {
-               // let stars = SKTexture(imageNamed: "Stars")
-               // for i in 0...1 {
-                   // let starsBackground = SKSpriteNode(texture: stars)
-                 //   starsBackground.zPosition = -1
-                  //  starsBackground.position = CGPoint(x: 0, y: starsBackground.size.height * CGFloat(i))
-                   // addChild(starsBackground)
-                  //  let moveDown = SKAction.moveBy(x: 0, y: -starsBackground.size.height, duration: 20)
-                   // let moveReset = SKAction.moveBy(x: 0, y: starsBackground.size.height, duration: 0)
-                   // let moveLoop = SKAction.sequence([moveDown, moveReset])
-                  //  let moveForever = SKAction.repeatForever(moveLoop)
-                 //   starsBackground.run(moveForever)
-               // }
-           // }
-      //  }
-  //  }
+            else if e == 4 {
+                let pplanets = SKTexture(imageNamed: "PP Background")
+                for i in 0...1 {
+                    let pplanetBackground = SKSpriteNode(texture: pplanets)
+                    pplanetBackground.zPosition = -1
+                    pplanetBackground.position = CGPoint(x: 0, y: pplanetBackground.size.height * CGFloat(i))
+                    addChild(pplanetBackground)
+                    let moveDown = SKAction.moveBy(x: 0, y: -pplanetBackground.size.height, duration: 20)
+                    let moveReset = SKAction.moveBy(x: 0, y: pplanetBackground.size.height, duration: 0)
+                    let moveLoop = SKAction.sequence([moveDown, moveReset])
+                    let moveForever = SKAction.repeatForever(moveLoop)
+                    pplanetBackground.run(moveForever)
+                }
+            }
+            else {
+                let stars = SKTexture(imageNamed: "Stars")
+                for i in 0...1 {
+                    let starsBackground = SKSpriteNode(texture: stars)
+                    starsBackground.zPosition = -1
+                    starsBackground.position = CGPoint(x: 0, y: starsBackground.size.height * CGFloat(i))
+                    addChild(starsBackground)
+                    let moveDown = SKAction.moveBy(x: 0, y: -starsBackground.size.height, duration: 20)
+                    let moveReset = SKAction.moveBy(x: 0, y: starsBackground.size.height, duration: 0)
+                    let moveLoop = SKAction.sequence([moveDown, moveReset])
+                    let moveForever = SKAction.repeatForever(moveLoop)
+                    starsBackground.run(moveForever)
+                }
+            }
+        }
+    }
     
     func makeBall() {
         ball.removeFromParent()     // remove the ball (if it exists)
